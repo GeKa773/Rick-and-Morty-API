@@ -1,8 +1,10 @@
-package com.gekaradchenko.app.api
+package com.gekaradchenko.app.api.models.request
 
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-enum class Status {
+@Serializable
+enum class StatusDTO {
     @SerialName("alive")
     ALIVE,
 

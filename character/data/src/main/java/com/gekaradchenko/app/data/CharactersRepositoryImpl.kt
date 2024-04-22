@@ -1,5 +1,7 @@
 package com.gekaradchenko.app.data
 
+import com.gekaradchenko.app.domain.CharactersRepository
+
 class CharactersRepositoryImpl : CharactersRepository {
 
     override fun connectLocalCharacters() {

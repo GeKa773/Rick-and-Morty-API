@@ -1,8 +1,10 @@
-package com.gekaradchenko.app.api
+package com.gekaradchenko.app.data.models.remote
 
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-enum class Gender {
+@Serializable
+enum class GenderData {
     @SerialName("female")
     FEMALE,
 

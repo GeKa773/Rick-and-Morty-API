@@ -1,12 +1,13 @@
 package com.gekaradchenko.app.api
 
 import androidx.annotation.IntRange
-import com.gekaradchenko.app.api.models.Character
-import com.gekaradchenko.app.models.BaseRetrofitCollectionModel
+import com.gekaradchenko.app.api.models.request.GenderDTO
+import com.gekaradchenko.app.api.models.request.StatusDTO
+import com.gekaradchenko.app.api.models.response.CharacterDTO
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.skydoves.retrofit.adapters.result.ResultCallAdapterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -22,9 +23,9 @@ interface CharacterApi {
     fun getCharacters(
         @Query("page") @IntRange(from = 1) page: Int,
         @Query("name") name: String? = null,
-        @Query("status") status: Status? = null,
-        @Query("gender") gender: Gender? = null,
-    ): Result<BaseRetrofitCollectionModel<Character>>
+        @Query("status") status: StatusDTO? = null,
+        @Query("gender") gender: GenderDTO? = null,
+    ): Response<BaseApiCollectionModel<CharacterDTO>>
 
 
     /**
@@ -34,7 +35,7 @@ interface CharacterApi {
     @GET("character/{id}")
     fun getCharacter(
         @Path("id") id: Int
-    ): Result<Character>
+    ): Response<CharacterDTO>
 
 }
 
@@ -48,6 +49,10 @@ private fun retrofit(baseUrl: String): Retrofit {
     return Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(jsonConverterFactory)
-        .addCallAdapterFactory(ResultCallAdapterFactory.create())
+//        .addCallAdapterFactory(ResultCallAdapterFactory.create())
         .build()
+}
+
+private fun rerere() {
+    CharacterApi("").getCharacter(12).errorBody()
 }

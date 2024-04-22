@@ -10,10 +10,5 @@ java {
 }
 
 dependencies {
-
-    implementation(project(":character:domain"))
-    implementation(project(":base:models:data"))
-
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.androidx.annatation)
 }

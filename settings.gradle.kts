@@ -30,4 +30,5 @@ include(":character:presentation")
 
 include(":base:utils")
 include(":base:android")
-include(":base:models")
+include(":base:models:api")
+include(":base:models:data")

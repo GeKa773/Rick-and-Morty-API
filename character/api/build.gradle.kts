@@ -11,7 +11,9 @@ java {
 
 dependencies {
 
-    implementation(project(":base:models"))
+    implementation(project(":base:models:api"))
+    implementation(project(":base:models:data"))
+    implementation(project(":character:data"))
 
     implementation(libs.retrofit)
     implementation(libs.kotlinx.coroutines.core)

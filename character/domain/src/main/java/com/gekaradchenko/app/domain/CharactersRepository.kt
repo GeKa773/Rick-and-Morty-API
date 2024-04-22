@@ -1,4 +1,4 @@
-package com.gekaradchenko.app.data
+package com.gekaradchenko.app.domain
 
 interface CharactersRepository {
 
