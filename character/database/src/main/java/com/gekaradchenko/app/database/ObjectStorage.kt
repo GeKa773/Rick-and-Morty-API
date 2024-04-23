@@ -5,13 +5,13 @@ import com.gekaradchenko.app.data.models.CharacterData
 import com.gekaradchenko.app.database.mapper.characterMapper
 import com.gekaradchenko.app.database.models.CharacterDBO
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.flow.map
 
 object ObjectStorage : LocalCharacters {
 
-    private val characters: Flow<List<CharacterDBO>> = flowOf(listOf())
+    private val characters: MutableStateFlow<List<CharacterDBO>> = MutableStateFlow(listOf())
     override fun getAllLocalCharacters(): Flow<List<CharacterData>> {
         return characters.map { it.map { character -> characterMapper(character) } }
     }
@@ -22,6 +22,17 @@ object ObjectStorage : LocalCharacters {
         }
 
         return null
+    }
+
+    override suspend fun saveLocalCharacters(characters: List<CharacterData>): Boolean {
+        this.characters.value = characters.map { characterMapper(it) }
+        return true
+    }
+
+    override suspend fun clearLocalCharacters(): Boolean {
+        this.characters.value = listOf()
+
+        return true
     }
 
 }

@@ -12,7 +12,7 @@ import com.gekaradchenko.app.data.models.remote.GenderData
 import com.gekaradchenko.app.data.models.remote.StatusData
 
 class CharacterGateway(private val characterApi: CharacterApi) : RemoteCharacters {
-    override fun getCharacters(
+    override suspend fun getCharacters(
         page: Int,
         name: String?,
         status: StatusData?,
@@ -22,7 +22,7 @@ class CharacterGateway(private val characterApi: CharacterApi) : RemoteCharacter
             .toDataResponse { it.toDataCollectionModel { characterMapper(it) } }
     }
 
-    override fun getCharacter(id: Int): DataResponse<CharacterData> {
+    override suspend fun getCharacter(id: Int): DataResponse<CharacterData> {
         return characterApi.getCharacter(id).toDataResponse { characterMapper(it) }
     }
 

@@ -6,7 +6,9 @@ import com.gekaradchenko.app.api.models.request.StatusDTO
 import com.gekaradchenko.app.api.models.response.CharacterDTO
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
-import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.http.GET
@@ -19,8 +21,8 @@ interface CharacterApi {
      *  API details [here](https://rickandmortyapi.com/documentation/#get-all-characters)
      */
 
-    @GET("/character")
-    fun getCharacters(
+    @GET("character")
+    suspend fun getCharacters(
         @Query("page") @IntRange(from = 1) page: Int,
         @Query("name") name: String? = null,
         @Query("status") status: StatusDTO? = null,
@@ -33,7 +35,7 @@ interface CharacterApi {
      */
 
     @GET("character/{id}")
-    fun getCharacter(
+    suspend fun getCharacter(
         @Path("id") id: Int
     ): Response<CharacterDTO>
 
@@ -45,14 +47,25 @@ fun CharacterApi(baseUrl: String): CharacterApi {
 }
 
 private fun retrofit(baseUrl: String): Retrofit {
-    val jsonConverterFactory = Json.asConverterFactory(MediaType.get("application/json"))
+//    val jsonConverterFactory = Json.asConverterFactory(MediaType.get("application/json"))
+    val jsonConverterFactory = Json.asConverterFactory("application/json".toMediaType())
     return Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(jsonConverterFactory)
 //        .addCallAdapterFactory(ResultCallAdapterFactory.create())
+        .client(getOkHttpClient())
         .build()
 }
 
-private fun rerere() {
-    CharacterApi("").getCharacter(12).errorBody()
+
+private fun getOkHttpClient(): OkHttpClient {
+    return OkHttpClient.Builder()
+        .addInterceptor(getHttpLoggingInterceptor())
+        .build()
+}
+
+private fun getHttpLoggingInterceptor(): HttpLoggingInterceptor {
+    return HttpLoggingInterceptor().apply {
+        setLevel(HttpLoggingInterceptor.Level.BODY)
+    }
 }

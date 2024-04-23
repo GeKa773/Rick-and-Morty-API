@@ -1,4 +1,4 @@
-package com.gekaradchenko.app.domain.models
+package com.gekaradchenko.app.domain.models.response
 
 import kotlinx.serialization.Serializable
 

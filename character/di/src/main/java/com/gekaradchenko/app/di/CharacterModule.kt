@@ -6,7 +6,7 @@ import com.gekaradchenko.app.data.CharactersRepositoryImpl
 import com.gekaradchenko.app.data.LocalCharacters
 import com.gekaradchenko.app.data.RemoteCharacters
 import com.gekaradchenko.app.database.ObjectStorage
-import com.gekaradchenko.app.domain.CharactersRepository
+import com.gekaradchenko.app.domain.repository.CharactersRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,7 +20,7 @@ class CharacterModule {
     @Provides
     @Singleton
     fun provideCharacterApi(): CharacterApi {
-        return CharacterApi("https://rickandmortyapi.com/api")
+        return CharacterApi("https://rickandmortyapi.com/api/")
     }
 
     @Provides

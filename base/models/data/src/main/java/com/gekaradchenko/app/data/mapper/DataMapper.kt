@@ -5,7 +5,7 @@ import com.gekaradchenko.app.data.DataResponse
 import com.gekaradchenko.app.domain.BaseDomainCollectionResult
 import com.gekaradchenko.app.domain.DomainResponse
 
-internal fun <DATA, DOMAIN> DataResponse<DATA>.toDataResponse(mapper: (DATA) -> DOMAIN): DomainResponse<DOMAIN> =
+fun <DATA, DOMAIN> DataResponse<DATA>.toDomainResponse(mapper: (DATA) -> DOMAIN): DomainResponse<DOMAIN> =
     DomainResponse(
         isSuccessful = this.isSuccessful,
         code = this.code,
@@ -13,7 +13,7 @@ internal fun <DATA, DOMAIN> DataResponse<DATA>.toDataResponse(mapper: (DATA) -> 
         body = if (this.body == null) null else mapper(this.body),
     )
 
-internal fun <DATA, DOMAIN> BaseDataCollectionModel<DATA>.toDataCollectionModel(mapper: (DATA) -> DOMAIN): BaseDomainCollectionResult {
+fun <DATA, DOMAIN> BaseDataCollectionModel<DATA>.toDomainCollectionModel(mapper: (DATA) -> DOMAIN): BaseDomainCollectionResult {
     return BaseDomainCollectionResult(
         count = this.info.count,
         pages = this.info.pages,

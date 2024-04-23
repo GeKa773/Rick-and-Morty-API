@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class BaseApiCollectionModel<T>(
     @SerialName("info") val info: InfoDTO,
-    @SerialName("result") val result: List<T>
+    @SerialName("results") val result: List<T>
 
 )
 

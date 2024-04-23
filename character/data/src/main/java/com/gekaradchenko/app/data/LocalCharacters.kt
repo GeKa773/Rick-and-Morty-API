@@ -8,4 +8,8 @@ interface LocalCharacters {
     fun getAllLocalCharacters(): Flow<List<CharacterData>>
 
     suspend fun getLocalCharacter(id: Int): CharacterData?
+
+    suspend fun saveLocalCharacters(characters: List<CharacterData>): Boolean
+
+    suspend fun clearLocalCharacters(): Boolean
 }

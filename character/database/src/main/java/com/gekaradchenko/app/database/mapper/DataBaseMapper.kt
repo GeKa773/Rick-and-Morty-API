@@ -28,3 +28,23 @@ internal fun characterMapper(characterDBO: CharacterDBO): CharacterData {
     )
 
 }
+
+internal fun characterMapper(characterData: CharacterData): CharacterDBO {
+    return CharacterDBO(
+        id = characterData.id,
+        name = characterData.name,
+        status = characterData.status,
+        species = characterData.species,
+        type = characterData.type,
+        gender = characterData.gender,
+        originName = characterData.origin.name,
+        originUrl = characterData.origin.url,
+        locationName = characterData.location.name,
+        locationUrl = characterData.location.url,
+        image = characterData.image,
+        episode = characterData.episode,
+        url = characterData.url,
+        created = characterData.created,
+    )
+
+}

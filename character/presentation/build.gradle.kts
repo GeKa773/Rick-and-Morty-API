@@ -46,6 +46,7 @@ android {
 dependencies {
 
     implementation(project(":base:android"))
+    implementation(project(":base:models:domain"))
     implementation(project(":character:domain"))
     implementation(project(":character:di"))
 

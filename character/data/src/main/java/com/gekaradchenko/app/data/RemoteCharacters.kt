@@ -5,16 +5,16 @@ import com.gekaradchenko.app.data.models.CharacterData
 import com.gekaradchenko.app.data.models.remote.GenderData
 import com.gekaradchenko.app.data.models.remote.StatusData
 
-    interface RemoteCharacters {
+interface RemoteCharacters {
 
-    fun getCharacters(
+    suspend fun getCharacters(
         @IntRange(from = 1) page: Int,
         name: String? = null,
         status: StatusData? = null,
         gender: GenderData? = null,
     ): DataResponse<BaseDataCollectionModel<CharacterData>>
 
-    fun getCharacter(
+    suspend fun getCharacter(
         id: Int
     ): DataResponse<CharacterData>
 }
