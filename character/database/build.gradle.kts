@@ -32,6 +32,10 @@ android {
 
 dependencies {
 
+    implementation(project(":base:models:database"))
+    implementation(project(":base:models:data"))
+    implementation(project(":character:data"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -41,4 +45,5 @@ dependencies {
 
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.kotlinx.coroutines.core)
 }

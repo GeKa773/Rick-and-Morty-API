@@ -5,7 +5,6 @@ import com.gekaradchenko.app.data.models.CharacterData
 import com.gekaradchenko.app.data.models.remote.GenderData
 import com.gekaradchenko.app.data.models.remote.StatusData
 
-
     interface RemoteCharacters {
 
     fun getCharacters(

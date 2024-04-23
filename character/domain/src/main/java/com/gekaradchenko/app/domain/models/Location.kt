@@ -1,9 +1,9 @@
-package com.gekaradchenko.app.data.models
+package com.gekaradchenko.app.domain.models
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class OriginData(
+data class Location(
     val name: String,
     val url: String,
 )

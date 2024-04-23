@@ -1,10 +1,13 @@
 package com.gekaradchenko.app.domain
 
+import com.gekaradchenko.app.domain.models.Character
+import kotlinx.coroutines.flow.Flow
+
 interface CharactersRepository {
 
-    fun connectLocalCharacters()
+    fun connectLocalCharacters(): Flow<List<Character>>
 
-    fun getPageCharacters()
+    suspend fun getPageCharacters(): DomainResponse<BaseDomainCollectionResult>
 
-    fun getCharacter()
+    suspend fun getCharacter(): DomainResponse<Character>
 }
