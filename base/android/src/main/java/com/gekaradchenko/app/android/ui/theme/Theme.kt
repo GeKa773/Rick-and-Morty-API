@@ -1,4 +1,4 @@
-package com.gekaradchenko.app.rickandmorty.ui.theme
+package com.gekaradchenko.app.android.ui.theme
 
 import android.app.Activity
 import android.os.Build

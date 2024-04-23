@@ -6,20 +6,19 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.gekaradchenko.app.rickandmorty.ui.theme.RickAndMortyTheme
+import com.gekaradchenko.app.android.ui.theme.RickAndMortyTheme
+import com.gekaradchenko.app.presentation.CharacterScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             RickAndMortyTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
+                    Greeting()
                 }
             }
         }
@@ -27,17 +26,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun Greeting(modifier: Modifier = Modifier) {
+    CharacterScreen()
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    RickAndMortyTheme {
-        Greeting("Android")
-    }
+fun MainPreview() {
+    CharacterScreen()
 }

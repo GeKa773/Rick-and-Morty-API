@@ -11,7 +11,5 @@ java {
 
 dependencies {
 
-    implementation(project(":base:models:domain"))
-
     implementation(libs.kotlinx.serialization.json)
 }

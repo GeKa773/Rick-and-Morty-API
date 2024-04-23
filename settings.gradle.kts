@@ -27,6 +27,7 @@ include(":character:database")
 include(":character:domain")
 include(":character:data")
 include(":character:presentation")
+include(":character:di")
 
 include(":base:utils")
 include(":base:android")

@@ -7,7 +7,7 @@ import com.gekaradchenko.app.data.DataResponse
 import com.gekaradchenko.app.data.InfoData
 import retrofit2.Response
 
-internal fun <DTO, DATA> Response<DTO>.toDataResponse(mapper: (DTO) -> DATA): DataResponse<DATA> =
+fun <DTO, DATA> Response<DTO>.toDataResponse(mapper: (DTO) -> DATA): DataResponse<DATA> =
     DataResponse(
         isSuccessful = isSuccessful,
         code = code(),
@@ -16,7 +16,7 @@ internal fun <DTO, DATA> Response<DTO>.toDataResponse(mapper: (DTO) -> DATA): Da
     )
 
 
-internal fun <DTO, DATA> BaseApiCollectionModel<DTO>.toDataCollectionModel(mapper: (DTO) -> DATA): BaseDataCollectionModel<DATA> {
+fun <DTO, DATA> BaseApiCollectionModel<DTO>.toDataCollectionModel(mapper: (DTO) -> DATA): BaseDataCollectionModel<DATA> {
     return BaseDataCollectionModel(
         info = this.info.toData(),
         result = this.result.map(mapper)
