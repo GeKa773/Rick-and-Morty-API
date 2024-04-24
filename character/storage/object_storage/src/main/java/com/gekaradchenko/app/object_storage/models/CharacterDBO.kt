@@ -1,4 +1,4 @@
-package com.gekaradchenko.app.database.models
+package com.gekaradchenko.app.object_storage.models
 
 data class CharacterDBO(
     val id: Int,

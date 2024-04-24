@@ -14,6 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import java.util.concurrent.TimeUnit
 
 interface CharacterApi {
 
@@ -60,6 +61,9 @@ private fun retrofit(baseUrl: String): Retrofit {
 
 private fun getOkHttpClient(): OkHttpClient {
     return OkHttpClient.Builder()
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
         .addInterceptor(getHttpLoggingInterceptor())
         .build()
 }

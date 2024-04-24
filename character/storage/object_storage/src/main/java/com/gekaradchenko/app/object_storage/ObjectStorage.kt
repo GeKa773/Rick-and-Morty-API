@@ -1,9 +1,9 @@
-package com.gekaradchenko.app.database
+package com.gekaradchenko.app.object_storage
 
 import com.gekaradchenko.app.data.LocalCharacters
 import com.gekaradchenko.app.data.models.CharacterData
-import com.gekaradchenko.app.database.mapper.characterMapper
-import com.gekaradchenko.app.database.models.CharacterDBO
+import com.gekaradchenko.app.object_storage.mapper.characterMapper
+import com.gekaradchenko.app.object_storage.models.CharacterDBO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.last

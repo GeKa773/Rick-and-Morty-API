@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/base" />
+            <option value="$PROJECT_DIR$/base/android" />
+            <option value="$PROJECT_DIR$/base/models" />
+            <option value="$PROJECT_DIR$/base/models/api" />
+            <option value="$PROJECT_DIR$/base/models/data" />
+            <option value="$PROJECT_DIR$/base/models/database" />
+            <option value="$PROJECT_DIR$/base/models/domain" />
+            <option value="$PROJECT_DIR$/base/utils" />
+            <option value="$PROJECT_DIR$/character" />
+            <option value="$PROJECT_DIR$/character/api" />
+            <option value="$PROJECT_DIR$/character/data" />
+            <option value="$PROJECT_DIR$/character/di" />
+            <option value="$PROJECT_DIR$/character/domain" />
+            <option value="$PROJECT_DIR$/character/presentation" />
+            <option value="$PROJECT_DIR$/character/storage" />
+            <option value="$PROJECT_DIR$/character/storage/database" />
+            <option value="$PROJECT_DIR$/character/storage/object_storage" />
+          </set>
+        </option>
+        <option name="resolveExternalAnnotations" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

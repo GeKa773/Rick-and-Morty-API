@@ -4,8 +4,10 @@ import com.gekaradchenko.app.data.models.CharacterData
 import com.gekaradchenko.app.data.models.LocationData
 import com.gekaradchenko.app.data.models.OriginData
 import com.gekaradchenko.app.database.models.CharacterDBO
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
-internal fun characterMapper(characterDBO: CharacterDBO): CharacterData {
+internal fun characterMapper(characterDBO: CharacterDBO, json: Json): CharacterData {
     return CharacterData(
         id = characterDBO.id,
         name = characterDBO.name,
@@ -22,14 +24,14 @@ internal fun characterMapper(characterDBO: CharacterDBO): CharacterData {
             url = characterDBO.locationUrl
         ),
         image = characterDBO.image,
-        episode = characterDBO.episode,
+        episode = json.decodeFromString(characterDBO.episodeJson),
         url = characterDBO.url,
         created = characterDBO.created,
     )
 
 }
 
-internal fun characterMapper(characterData: CharacterData): CharacterDBO {
+internal fun characterMapper(characterData: CharacterData, json: Json): CharacterDBO {
     return CharacterDBO(
         id = characterData.id,
         name = characterData.name,
@@ -42,7 +44,7 @@ internal fun characterMapper(characterData: CharacterData): CharacterDBO {
         locationName = characterData.location.name,
         locationUrl = characterData.location.url,
         image = characterData.image,
-        episode = characterData.episode,
+        episodeJson = json.encodeToString(characterData.episode),
         url = characterData.url,
         created = characterData.created,
     )

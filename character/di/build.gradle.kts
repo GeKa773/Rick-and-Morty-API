@@ -35,11 +35,13 @@ android {
 dependencies {
 
     implementation(project(":character:api"))
-    implementation(project(":character:database"))
+    implementation(project(":character:storage:database"))
+    implementation(project(":character:storage:object_storage"))
     implementation(project(":character:data"))
     implementation(project(":character:domain"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
+    implementation(libs.kotlinx.serialization.json)
 }

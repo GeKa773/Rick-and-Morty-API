@@ -23,7 +23,8 @@ rootProject.name = "Rick and Morty"
 include(":app")
 
 include(":character:api")
-include(":character:database")
+include(":character:storage:database")
+include(":character:storage:object_storage")
 include(":character:domain")
 include(":character:data")
 include(":character:presentation")
