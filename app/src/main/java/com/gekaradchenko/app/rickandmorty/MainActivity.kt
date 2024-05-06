@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             RickAndMortyTheme {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting()
+                    Greeting(modifier = Modifier.fillMaxSize())
                 }
             }
         }
@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(modifier: Modifier = Modifier) {
-    CharacterScreen()
+    CharacterScreen(modifier = modifier)
 }
 
 @Preview(showBackground = true)
